@@ -190,7 +190,10 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
     linear-gradient(135deg, rgba(27,31,42,.62) 0%, rgba(92,110,90,.34) 100%),
     url('img/penaagua-700.jpg');
   background-size:cover;
-  background-position:center;
+  /* 26% no eixo Y: em telas largas o recorte sobe e entrega represa + serra no
+     horizonte, em vez de só a faixa de gramado do meio da foto. Em telas estreitas
+     a foto vertical cabe inteira na altura, então este valor não tem efeito. */
+  background-position:center 26%;
   will-change:transform;
 }
 @media (min-width:701px){
