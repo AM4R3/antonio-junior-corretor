@@ -671,12 +671,15 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
         <article class="card featured reveal">
           <div class="card-media">
             <span class="tag gold">Destaque</span>
-            <!-- FOTO REAL (Instagram /p/DcOgfYDES4R/). O recorte quadrado do Instagram
-                 deixou a casa na base da imagem — daí o object-position:bottom.
-                 SUBSTITUIR: pedir o original em alta ao Antônio (1200x900px). -->
-            <img src="img/estancia.jpg" style="object-position:center bottom"
-                 alt="Fachada da residência de alto padrão no Condomínio Estância Parque Atibaia"
-                 width="640" height="640" loading="lazy" decoding="async">
+            <!-- ÚNICO CARD SEM FOTO REAL UTILIZÁVEL. A foto do post /p/DcOgfYDES4R/ foi
+                 baixada (img/estancia.jpg), mas o recorte quadrado do Instagram deixou
+                 ~70% de céu com a casa numa faixa fina embaixo: como a mídia deste card
+                 é quase quadrada, não há recorte que resolva sem estourar a resolução.
+                 SUBSTITUIR (PRIORIDADE): foto original da Estância Parque em 1200x900px,
+                 direto com o Antônio — é o imóvel de R$ 8,49M, o destaque da página. -->
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=900&q=80&auto=format&fit=crop"
+                 alt="Fachada e área de piscina de residência de alto padrão na Estância Parque Atibaia"
+                 width="1200" height="900" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Estância Parque Atibaia · Atibaia/SP</p>
@@ -790,7 +793,7 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
             <!-- FOTO REAL (Instagram /reel/DcGylomRxV8/): o campo de futebol da chácara
                  em tomada de drone — é o post de maior engajamento da amostra.
                  SUBSTITUIR: pedir o original em alta ao Antônio (800x600px). -->
-            <img src="img/refugio.jpg"
+            <img src="img/refugio.jpg" style="object-position:center bottom"
                  alt="Campo de futebol da chácara Refúgio da Família visto de drone, cercado de mata, em Atibaia"
                  width="640" height="640" loading="lazy" decoding="async">
           </div>
@@ -821,7 +824,7 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
             <!-- FOTO REAL (Instagram /p/DcLqg9_kX2b/): a casa do condomínio com acesso
                  à represa, em Piracaia.
                  SUBSTITUIR: pedir o original em alta ao Antônio (800x600px). -->
-            <img src="img/piracaia.jpg"
+            <img src="img/piracaia.jpg" style="object-position:center bottom"
                  alt="Casa em condomínio com acesso à represa, cercada de palmeiras, em Piracaia"
                  width="640" height="640" loading="lazy" decoding="async">
           </div>
