@@ -14,8 +14,8 @@
 <meta property="og:title" content="Antonio Júnior Corretor | Imóveis de alto padrão em Atibaia/SP">
 <meta property="og:description" content="Casas de alto padrão, chácaras e propriedades exclusivas em Atibaia e região.">
 <meta property="og:url" content="https://exemplo.com.br/">
-<!-- SUBSTITUIR: imagem de compartilhamento 1200x630px (foto aérea de um imóvel real) -->
-<meta property="og:image" content="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1200&h=630&q=80&auto=format&fit=crop">
+<!-- SUBSTITUIR: gerar um recorte 1200x630px dedicado quando chegar a foto em alta -->
+<meta property="og:image" content="https://antonio-junior-corretor.vercel.app/img/penaagua.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- SUBSTITUIR: favicon próprio (monograma AJ dourado sobre marinho) -->
@@ -29,10 +29,10 @@
             <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
             e ajustar --font-body para 'Satoshi'. Inter é o fallback usado aqui — só no corpo, nunca em headline.
 -->
-<!-- Hero é o LCP da página: preconnect + preload para não atrasar a primeira pintura.
-     SUBSTITUIR: apontar para a foto aérea real junto com a url() em .hero-media -->
+<!-- Hero é o LCP da página: preload para não atrasar a primeira pintura -->
+<link rel="preload" as="image" href="img/penaagua.jpg" fetchpriority="high">
+<!-- 2 dos 6 cards ainda usam foto de referência do Unsplash (ver comentários na seção Destaques) -->
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1920&q=80&auto=format&fit=crop" fetchpriority="high">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,21 +172,32 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
   position:relative;min-height:100svh;display:flex;align-items:flex-end;
   padding:140px 0 clamp(48px,7vw,88px);isolation:isolate;overflow:hidden;
 }
-/* SUBSTITUIR: foto AÉREA DE DRONE DE UM IMÓVEL REAL do Antônio — 1920x1080px.
-   A imagem atual é uma aérea de campo (Unsplash) usada como provisória: transmite a
-   direção certa (drone, luz natural, serra) mas não mostra propriedade dele.
-   Trocar a url() abaixo por 'img/hero-aerea.jpg' — o gradiente marinho→sálvia
-   permanece por cima como scrim e como fallback enquanto a foto carrega. */
+/* HERO — foto REAL do Antônio: vista da represa da usina, da Chácara Pé na Água
+   (post /p/DcKUAFFEVNj/). Baixada do Instagram, por isso só 640x640.
+   SUBSTITUIR: pedir ao Antônio o ORIGINAL em alta (mín. 1920x1080) — nesta
+   largura a imagem fica levemente suave. O scrim marinho→sálvia por cima
+   disfarça, mas o original resolve de vez. */
 .hero-media{
   position:absolute;inset:0;z-index:-2;
   background-color:#1B1F2A;
   background-image:
     linear-gradient(135deg, rgba(27,31,42,.62) 0%, rgba(92,110,90,.34) 100%),
-    url('https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1920&q=80&auto=format&fit=crop');
+    url('img/penaagua.jpg');
   background-size:cover;
   background-position:center;
   will-change:transform;
 }
+
+/* VÍDEO DE FUNDO DO HERO — pronto, basta o arquivo.
+   Assim que 'img/hero.mp4' existir na pasta, o vídeo entra automaticamente por
+   cima da foto (que segue como poster e como fallback em mobile/conexão lenta).
+   Enquanto o arquivo não existir, o <video> não pinta nada e a foto permanece. */
+.hero-video{
+  position:absolute;inset:0;z-index:-2;
+  width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1.2s var(--ease);
+}
+.hero-video.pronto{opacity:1}
 .hero-media::after{
   content:"";position:absolute;inset:0;opacity:.5;
   background:
@@ -535,8 +546,17 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
        2 · HERO
        ============================================================ -->
   <section class="hero">
-    <!-- SUBSTITUIR: foto aérea de drone de um imóvel — 1400x800px -->
+    <!-- Foto real: represa da usina, vista da Chácara Pé na Água (Instagram do Antônio) -->
     <div class="hero-media" aria-hidden="true"></div>
+
+    <!-- VÍDEO DE FUNDO: basta salvar o arquivo como img/hero.mp4 na pasta do projeto.
+         O JS confirma que carregou antes de exibir; se o arquivo não existir,
+         nada acontece e a foto acima continua valendo. -->
+    <video class="hero-video" id="heroVideo" muted loop playsinline preload="none"
+           poster="img/penaagua.jpg" aria-hidden="true">
+      <source src="img/hero.mp4" type="video/mp4">
+    </video>
+
     <div class="hero-scrim" aria-hidden="true"></div>
 
     <div class="wrap">
@@ -651,10 +671,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
         <article class="card featured reveal">
           <div class="card-media">
             <span class="tag gold">Destaque</span>
-            <!-- SUBSTITUIR: foto real do imóvel — 1200x900px -->
-            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=900&q=80&auto=format&fit=crop"
-                 alt="Fachada e área de piscina de residência de alto padrão na Estância Parque Atibaia"
-                 width="1200" height="900" loading="lazy" decoding="async">
+            <!-- FOTO REAL (Instagram /p/DcOgfYDES4R/). O recorte quadrado do Instagram
+                 deixou a casa na base da imagem — daí o object-position:bottom.
+                 SUBSTITUIR: pedir o original em alta ao Antônio (1200x900px). -->
+            <img src="img/estancia.jpg" style="object-position:center bottom"
+                 alt="Fachada da residência de alto padrão no Condomínio Estância Parque Atibaia"
+                 width="640" height="640" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Estância Parque Atibaia · Atibaia/SP</p>
@@ -765,10 +787,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
         <article class="card reveal">
           <div class="card-media">
             <span class="tag sage">Refúgio da Família</span>
-            <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
-            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&q=80&auto=format&fit=crop"
-                 alt="Chácara iluminada ao entardecer, cercada de mata — Refúgio da Família, em Atibaia"
-                 width="800" height="600" loading="lazy" decoding="async">
+            <!-- FOTO REAL (Instagram /reel/DcGylomRxV8/): o campo de futebol da chácara
+                 em tomada de drone — é o post de maior engajamento da amostra.
+                 SUBSTITUIR: pedir o original em alta ao Antônio (800x600px). -->
+            <img src="img/refugio.jpg"
+                 alt="Campo de futebol da chácara Refúgio da Família visto de drone, cercado de mata, em Atibaia"
+                 width="640" height="640" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Chácara · Atibaia/SP</p>
@@ -794,10 +818,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
         <article class="card reveal">
           <div class="card-media">
             <span class="tag">A 1h30 da capital</span>
-            <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=600&q=80&auto=format&fit=crop"
-                 alt="Represa de águas calmas cercada por serra, em Piracaia"
-                 width="800" height="600" loading="lazy" decoding="async">
+            <!-- FOTO REAL (Instagram /p/DcLqg9_kX2b/): a casa do condomínio com acesso
+                 à represa, em Piracaia.
+                 SUBSTITUIR: pedir o original em alta ao Antônio (800x600px). -->
+            <img src="img/piracaia.jpg"
+                 alt="Casa em condomínio com acesso à represa, cercada de palmeiras, em Piracaia"
+                 width="640" height="640" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Represa · Piracaia/SP</p>
@@ -1070,6 +1096,23 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
   /* --- ano do rodapé --- */
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
+
+  /* --- VÍDEO DE FUNDO DO HERO ---
+     Só entra se img/hero.mp4 existir E o aparelho comportar: em mobile o vídeo
+     custa bateria e dados, e com prefers-reduced-motion não deve rodar de forma
+     alguma. Nesses casos a foto do hero permanece, sem download desperdiçado. */
+  var video = document.getElementById('heroVideo');
+  if (video && !reduz && mqDesktop.matches) {
+    video.preload = 'auto';
+    video.addEventListener('canplay', function(){
+      video.play().then(function(){ video.classList.add('pronto'); })
+                  .catch(function(){ /* autoplay bloqueado: fica a foto */ });
+    }, { once:true });
+    video.addEventListener('error', function(){ video.remove(); }, { once:true });
+    video.load();
+  } else if (video) {
+    video.remove();
+  }
 
   /* --- NAV: estado "scrolled" (fundo off-white ao sair do hero) --- */
   var nav = document.getElementById('nav'), tickNav = false;
