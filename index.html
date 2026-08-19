@@ -14,8 +14,8 @@
 <meta property="og:title" content="Antonio Júnior Corretor | Imóveis de alto padrão em Atibaia/SP">
 <meta property="og:description" content="Casas de alto padrão, chácaras e propriedades exclusivas em Atibaia e região.">
 <meta property="og:url" content="https://exemplo.com.br/">
-<!-- SUBSTITUIR: imagem de compartilhamento 1200x630px (foto aérea de um imóvel) -->
-<meta property="og:image" content="https://exemplo.com.br/og-image.jpg">
+<!-- SUBSTITUIR: imagem de compartilhamento 1200x630px (foto aérea de um imóvel real) -->
+<meta property="og:image" content="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1200&h=630&q=80&auto=format&fit=crop">
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- SUBSTITUIR: favicon próprio (monograma AJ dourado sobre marinho) -->
@@ -29,6 +29,11 @@
             <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
             e ajustar --font-body para 'Satoshi'. Inter é o fallback usado aqui — só no corpo, nunca em headline.
 -->
+<!-- Hero é o LCP da página: preconnect + preload para não atrasar a primeira pintura.
+     SUBSTITUIR: apontar para a foto aérea real junto com a url() em .hero-media -->
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1920&q=80&auto=format&fit=crop" fetchpriority="high">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -167,11 +172,19 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
   position:relative;min-height:100svh;display:flex;align-items:flex-end;
   padding:140px 0 clamp(48px,7vw,88px);isolation:isolate;overflow:hidden;
 }
-/* SUBSTITUIR: foto aérea de drone de um imóvel — 1400x800px (ideal 1920x1080)
-   Trocar por: background:url('img/hero-aerea.jpg') center/cover no-repeat; */
+/* SUBSTITUIR: foto AÉREA DE DRONE DE UM IMÓVEL REAL do Antônio — 1920x1080px.
+   A imagem atual é uma aérea de campo (Unsplash) usada como provisória: transmite a
+   direção certa (drone, luz natural, serra) mas não mostra propriedade dele.
+   Trocar a url() abaixo por 'img/hero-aerea.jpg' — o gradiente marinho→sálvia
+   permanece por cima como scrim e como fallback enquanto a foto carrega. */
 .hero-media{
   position:absolute;inset:0;z-index:-2;
-  background:linear-gradient(135deg,#1B1F2A 0%,#5C6E5A 100%);
+  background-color:#1B1F2A;
+  background-image:
+    linear-gradient(135deg, rgba(27,31,42,.62) 0%, rgba(92,110,90,.34) 100%),
+    url('https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1920&q=80&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
   will-change:transform;
 }
 .hero-media::after{
@@ -245,18 +258,21 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
 }
 .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--dourado-25)}
 
-/* SUBSTITUIR: foto real do imóvel — 800x600px (destaque principal: 1200x900px)
-   Trocar .card-media por: <img src="img/imovel-01.jpg" alt="..." loading="lazy"> */
+/* SUBSTITUIR: cada <img> abaixo é uma foto de referência (Unsplash) escolhida para
+   corresponder ao imóvel descrito — piscina resort, pier na represa, casa com campo etc.
+   Trocar o src de cada card pela FOTO REAL do imóvel (800x600px; destaque: 1200x900px)
+   e ajustar o alt. O fundo --bg-card fica visível enquanto a foto carrega. */
 .card-media{
   aspect-ratio:4/3;background:var(--bg-card);border-bottom:1px solid var(--dourado-25);
-  position:relative;display:grid;place-items:center;overflow:hidden;
+  position:relative;overflow:hidden;
 }
-.card-media::before{content:"";position:absolute;inset:12px;border:1px solid var(--dourado-25);border-radius:var(--r-sm)}
-.card-ph{
-  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--marinho-45);
-  text-align:center;padding:0 24px;line-height:1.9;
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.card:hover .card-media img{transform:scale(1.05)}
+/* scrim discreto no topo: garante leitura do selo sobre fotos claras */
+.card-media::after{
+  content:"";position:absolute;inset:0 0 auto 0;height:88px;pointer-events:none;
+  background:linear-gradient(to bottom, rgba(27,31,42,.32), transparent);
 }
-.card-ph b{display:block;font-family:var(--font-head);font-size:1.45rem;letter-spacing:.02em;color:var(--salvia);text-transform:none;font-weight:500;margin-bottom:6px}
 
 .tag{
   position:absolute;top:14px;left:14px;z-index:2;background:var(--marinho);color:#F5F5F0;
@@ -462,6 +478,7 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .reveal{opacity:1!important;transform:none!important}
+  .card:hover .card-media img{transform:none!important}
   .wa::before{display:none}
   .hero-scroll::after{animation:none}
 }
@@ -632,10 +649,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
 
         <!-- ---------- 01 · DESTAQUE PRINCIPAL — R$ 8.490.000 ---------- -->
         <article class="card featured reveal">
-          <!-- SUBSTITUIR: foto real do imóvel — 1200x900px -->
           <div class="card-media">
             <span class="tag gold">Destaque</span>
-            <span class="card-ph"><b>Estância Parque Atibaia</b>Substituir por foto do imóvel</span>
+            <!-- SUBSTITUIR: foto real do imóvel — 1200x900px -->
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80&auto=format&fit=crop"
+                 alt="Fachada e área de piscina de residência de alto padrão na Estância Parque Atibaia"
+                 width="1200" height="900" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Estância Parque Atibaia · Atibaia/SP</p>
@@ -660,10 +679,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
 
         <!-- ---------- 02 · R$ 3.199.000 ---------- -->
         <article class="card reveal">
-          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
           <div class="card-media">
             <span class="tag sage">Casa de campo</span>
-            <span class="card-ph"><b>Casa de campo</b>Substituir por foto do imóvel</span>
+            <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&q=80&auto=format&fit=crop"
+                 alt="Casa de campo com ampla área gramada em condomínio a 10 minutos do centro de Atibaia"
+                 width="800" height="600" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Condomínio a 10 min do centro · Atibaia/SP</p>
@@ -687,10 +708,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
 
         <!-- ---------- 03 · R$ 2.950.000 ---------- -->
         <article class="card reveal">
-          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
           <div class="card-media">
             <span class="tag">Exclusivo · 11 residências</span>
-            <span class="card-ph"><b>Lucas N. Garcez</b>Substituir por foto do imóvel</span>
+            <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+            <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80&auto=format&fit=crop"
+                 alt="Piscina estilo resort ao entardecer em condomínio exclusivo na Av. Lucas Nogueira Garcez"
+                 width="800" height="600" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Av. Lucas Nogueira Garcez · Atibaia/SP</p>
@@ -712,10 +735,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
 
         <!-- ---------- 04 · R$ 2.799.000 ---------- -->
         <article class="card reveal">
-          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
           <div class="card-media">
             <span class="tag gold">Proprietário estuda proposta</span>
-            <span class="card-ph"><b>Pé na Água</b>Substituir por foto do imóvel</span>
+            <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+            <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&q=80&auto=format&fit=crop"
+                 alt="Pier de madeira privativo avançando sobre a represa da usina, em Atibaia"
+                 width="800" height="600" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Represa da usina · Atibaia/SP</p>
@@ -738,10 +763,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
 
         <!-- ---------- 05 · R$ 2.290.000 — usa a copy orgânica de maior engajamento ---------- -->
         <article class="card reveal">
-          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
           <div class="card-media">
             <span class="tag sage">Refúgio da Família</span>
-            <span class="card-ph"><b>Refúgio da Família</b>Substituir por foto do imóvel</span>
+            <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80&auto=format&fit=crop"
+                 alt="Chácara iluminada ao entardecer, cercada de mata — Refúgio da Família, em Atibaia"
+                 width="800" height="600" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Chácara · Atibaia/SP</p>
@@ -765,10 +792,12 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
 
         <!-- ---------- 06 · R$ 2.299.000 ---------- -->
         <article class="card reveal">
-          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
           <div class="card-media">
             <span class="tag">A 1h30 da capital</span>
-            <span class="card-ph"><b>Represa · Piracaia</b>Substituir por foto do imóvel</span>
+            <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80&auto=format&fit=crop"
+                 alt="Represa de águas calmas cercada por serra, em Piracaia"
+                 width="800" height="600" loading="lazy" decoding="async">
           </div>
           <div class="card-body">
             <p class="card-local">Represa · Piracaia/SP</p>
