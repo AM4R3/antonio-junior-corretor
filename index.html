@@ -34,8 +34,8 @@
 -->
 <!-- Hero é o LCP da página: preload casado com o media query do CSS,
      para o celular não baixar a versão grande à toa -->
-<link rel="preload" as="image" href="img/penaagua-700.jpg" media="(max-width: 700px)" fetchpriority="high">
-<link rel="preload" as="image" href="img/penaagua.jpg" media="(min-width: 701px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/penaagua-700.jpg" media="(max-width: 700px) and (max-resolution: 1.99dppx)" fetchpriority="high">
+<link rel="preload" as="image" href="img/penaagua.jpg" media="(min-width: 701px), (min-resolution: 2dppx)" fetchpriority="high">
 <!-- 1 dos 6 cards ainda usa foto de referência do Unsplash (ver comentário na seção Destaques) -->
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
@@ -196,7 +196,9 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
   background-position:center 26%;
   will-change:transform;
 }
-@media (min-width:701px){
+/* A versão de 1080px entra em telas largas E em celular retina — num iPhone de
+   375px com dpr 2 o hero pede 750px reais, mais do que os 700 da versão leve. */
+@media (min-width:701px), (min-resolution:2dppx){
   .hero-media{
     background-image:
       linear-gradient(135deg, rgba(27,31,42,.62) 0%, rgba(92,110,90,.34) 100%),
@@ -495,10 +497,35 @@ h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
   .card.featured{grid-column:span 6;flex-direction:row}
   .card.featured .card-media{flex:1.4;aspect-ratio:auto;min-height:440px;border-bottom:0;border-right:1px solid var(--dourado-25)}
   .card.featured .card-body{flex:1;justify-content:center;padding:44px}
+  /* o corpo é centralizado, então o margin-top:auto padrão do rodapé abriria um
+     vão morto entre a descrição e o preço — aqui o rodapé acompanha o texto */
+  .card.featured .card-foot{margin-top:22px}
   .sobre-grid{grid-template-columns:1fr .78fr}
   .search{grid-template-columns:1.2fr 1fr 1fr auto}
 }
 @media (min-width:1200px){ .grid-imoveis{gap:30px} }
+
+/* ============================================================
+   AJUSTES DE MOBILE
+   Achados na auditoria em 375px: rótulos micro caindo para 9,3px e links de
+   rodapé com 17px de altura de toque (o mínimo confortável é ~40px).
+   ============================================================ */
+@media (max-width:600px){
+  .tag{font-size:.68rem}
+  .card-local{font-size:.72rem}
+  .preco small{font-size:.68rem}
+  .search-field label{font-size:.68rem}
+  .search-note{font-size:.64rem}
+  .brand-role{font-size:.66rem}
+  .hero-scroll{font-size:.66rem}
+  .dcard .who span{font-size:.78rem}
+}
+@media (max-width:767px){
+  /* área de toque de 41px nos links do rodapé, sem mudar o tamanho do texto */
+  .footer ul{gap:0}
+  .footer ul a{display:block;padding:12px 0}
+  .footer ul li:not(:has(a)){padding:12px 0}
+}
 
 /* ============================================================
    PREFERÊNCIAS DO USUÁRIO
