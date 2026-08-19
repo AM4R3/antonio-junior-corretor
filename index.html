@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antonio Júnior Corretor | Imóveis de alto padrão em Atibaia/SP</title>
+<meta name="description" content="Casas de alto padrão, chácaras e propriedades exclusivas em Atibaia, Piracaia e região. Acompanhamento direto do corretor, do primeiro contato à chave na mão.">
+<meta name="author" content="Antonio Júnior">
+
+<!-- SUBSTITUIR: URL final do site no lugar de https://exemplo.com.br/ (canonical + og:url) -->
+<link rel="canonical" href="https://exemplo.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Antonio Júnior Corretor | Imóveis de alto padrão em Atibaia/SP">
+<meta property="og:description" content="Casas de alto padrão, chácaras e propriedades exclusivas em Atibaia e região.">
+<meta property="og:url" content="https://exemplo.com.br/">
+<!-- SUBSTITUIR: imagem de compartilhamento 1200x630px (foto aérea de um imóvel) -->
+<meta property="og:image" content="https://exemplo.com.br/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- SUBSTITUIR: favicon próprio (monograma AJ dourado sobre marinho) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B1F2A'/><text x='16' y='22' font-family='Georgia,serif' font-size='14' fill='%23B8963E' text-anchor='middle'>AJ</text></svg>">
+
+<!--
+  TIPOGRAFIA
+  Headline: Playfair Display (Google Fonts)
+  Corpo:    Satoshi é licenciada pela Fontshare e NÃO está no Google Fonts.
+            SUBSTITUIR (site final): trocar o link abaixo por
+            <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+            e ajustar --font-body para 'Satoshi'. Inter é o fallback usado aqui — só no corpo, nunca em headline.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- SUBSTITUIR: confirmar CRECI e telefone oficial — este schema alimenta o Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Antonio Júnior Corretor",
+  "areaServed": ["Atibaia/SP", "Piracaia/SP", "Bragança Paulista/SP"],
+  "telephone": "+5511920090665",
+  "url": "https://exemplo.com.br/",
+  "sameAs": ["https://instagram.com/ajrcorretor"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Atibaia", "addressRegion": "SP", "addressCountry": "BR" }
+}
+</script>
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --marinho:#1B1F2A;
+  --marinho-70:rgba(27,31,42,.70);
+  --marinho-45:rgba(27,31,42,.45);
+  --salvia:#5C6E5A;
+  --salvia-12:rgba(92,110,90,.12);
+  --dourado:#B8963E;            /* EXCLUSIVO para botões e links de ação */
+  --dourado-25:rgba(184,150,62,.25);
+  --dourado-10:rgba(184,150,62,.10);
+  --bg:#F5F5F0;                 /* off-white — nunca branco puro */
+  --bg-card:#E8E6DF;
+  --linha:rgba(27,31,42,.12);
+
+  --font-head:'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+  --max:1200px;
+  --pad-x:clamp(20px, 5vw, 56px);
+  --sec-y:clamp(64px, 9vw, 128px);
+  --r-sm:6px;
+  --r-md:12px;
+  --shadow-sm:0 2px 10px rgba(27,31,42,.06);
+  --shadow-md:0 14px 40px rgba(27,31,42,.10);
+  --shadow-lg:0 28px 70px rgba(27,31,42,.16);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--marinho);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+::selection{background:var(--dourado);color:var(--marinho)}
+
+h1,h2,h3{font-family:var(--font-head);font-weight:500;line-height:1.14;letter-spacing:-.015em}
+h1{font-size:clamp(2.15rem,6.2vw,4.1rem)}
+h2{font-size:clamp(1.75rem,4.1vw,2.9rem)}
+h3{font-size:clamp(1.2rem,2.2vw,1.6rem)}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--pad-x);width:100%}
+
+.eyebrow{
+  font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--salvia);display:flex;align-items:center;gap:12px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--dourado);flex:none}
+.eyebrow.center{justify-content:center}
+.lead{font-size:clamp(1rem,1.6vw,1.12rem);color:var(--marinho-70);max-width:56ch}
+
+/* ---------- Botões · dourado = ação · texto SEMPRE marinho ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 28px;border-radius:var(--r-sm);
+  font-size:.93rem;font-weight:600;letter-spacing:.01em;text-align:center;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+}
+.btn-gold{background:var(--dourado);color:var(--marinho);box-shadow:0 6px 20px rgba(184,150,62,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(184,150,62,.38);background:#C7A44A}
+.btn-ghost{border:1px solid var(--dourado-25);color:var(--marinho)}
+.btn-ghost:hover{border-color:var(--dourado);background:var(--dourado-10)}
+.btn-ghost-light{border:1px solid rgba(245,245,240,.35);color:#F5F5F0}
+.btn-ghost-light:hover{border-color:#F5F5F0;background:rgba(245,245,240,.10)}
+.btn-lg{padding:19px 40px;font-size:1rem}
+.btn svg{flex:none}
+.btn[disabled]{opacity:.85;cursor:not-allowed;box-shadow:none}
+.btn[disabled]:hover{transform:none;background:var(--dourado)}
+
+:focus-visible{outline:2px solid var(--dourado);outline-offset:3px;border-radius:2px}
+
+/* ============================================================
+   1 · NAV
+   ============================================================ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:90;padding:16px 0;
+  transition:background .35s var(--ease), box-shadow .35s var(--ease), padding .35s var(--ease);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;color:#F5F5F0;transition:color .35s var(--ease)}
+.brand-mark{
+  width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-family:var(--font-head);font-size:.95rem;color:var(--dourado);
+  border:1px solid var(--dourado-25);background:rgba(27,31,42,.35);
+}
+.brand-name{font-family:var(--font-head);font-size:1.06rem;line-height:1.15}
+.brand-role{display:block;font-family:var(--font-body);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;opacity:.65;margin-top:3px}
+.nav-links{display:none;gap:32px;font-size:.85rem;font-weight:500;color:rgba(245,245,240,.82)}
+.nav-links a{position:relative;padding:4px 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--dourado);transition:width .3s var(--ease)}
+.nav-links a:hover{color:#F5F5F0}
+.nav-links a:hover::after{width:100%}
+.nav .btn{padding:12px 18px;font-size:.8rem}
+.nav .btn .txt-long{display:none}
+
+/* estado rolado — fundo off-white, texto marinho */
+.nav.scrolled{background:rgba(245,245,240,.94);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--linha),var(--shadow-sm);padding:10px 0}
+.nav.scrolled .brand{color:var(--marinho)}
+.nav.scrolled .brand-mark{background:var(--bg-card)}
+.nav.scrolled .nav-links{color:var(--marinho-70)}
+.nav.scrolled .nav-links a:hover{color:var(--marinho)}
+
+/* ============================================================
+   2 · HERO
+   ============================================================ */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  padding:140px 0 clamp(48px,7vw,88px);isolation:isolate;overflow:hidden;
+}
+/* SUBSTITUIR: foto aérea de drone de um imóvel — 1400x800px (ideal 1920x1080)
+   Trocar por: background:url('img/hero-aerea.jpg') center/cover no-repeat; */
+.hero-media{
+  position:absolute;inset:0;z-index:-2;
+  background:linear-gradient(135deg,#1B1F2A 0%,#5C6E5A 100%);
+  will-change:transform;
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;opacity:.5;
+  background:
+    radial-gradient(120% 80% at 12% 8%, rgba(245,245,240,.10) 0%, transparent 55%),
+    radial-gradient(90% 70% at 88% 92%, rgba(27,31,42,.55) 0%, transparent 60%);
+}
+.hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(27,31,42,.92) 0%,rgba(27,31,42,.55) 45%,rgba(27,31,42,.35) 100%)}
+.hero-inner{color:#F5F5F0;max-width:880px}
+.hero .eyebrow{color:rgba(245,245,240,.75)}
+.hero h1{margin-bottom:22px;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--dourado)}
+.hero-sub{font-size:clamp(1rem,1.75vw,1.2rem);color:rgba(245,245,240,.86);max-width:60ch;margin-bottom:34px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+
+/* --- Barra de busca: DECORATIVA no preview ---
+   SUBSTITUIR: no site final esta barra vira funcional — remover disabled/aria-disabled
+   e conectar aos filtros reais do catálogo (cidade / tipo / faixa de valor). */
+.search{
+  margin-top:44px;background:rgba(245,245,240,.10);
+  border:1px solid rgba(245,245,240,.20);backdrop-filter:blur(10px);
+  border-radius:var(--r-md);padding:10px;display:grid;gap:8px;position:relative;
+}
+.search-note{
+  position:absolute;top:-11px;left:16px;background:var(--dourado);color:var(--marinho);
+  font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;
+}
+.search-field{display:flex;flex-direction:column;gap:5px;padding:10px 14px;border-radius:var(--r-sm);background:rgba(27,31,42,.30)}
+.search-field label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,245,240,.6)}
+.search-field select{
+  background:none;border:0;color:#F5F5F0;font-family:var(--font-body);font-size:.9rem;font-weight:500;
+  appearance:none;width:100%;
+}
+.search-field select option{color:var(--marinho)}
+.search-field select:disabled{opacity:1;cursor:not-allowed;color:rgba(245,245,240,.85)}
+.search .btn{width:100%}
+
+.hero-scroll{
+  display:none;position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,240,.55);
+  align-items:center;gap:9px;
+}
+.hero-scroll::after{content:"";width:1px;height:34px;background:linear-gradient(rgba(245,245,240,.5),transparent);animation:drop 2.2s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============================================================
+   3 · NÚMEROS
+   ============================================================ */
+.numeros{background:var(--marinho);color:#F5F5F0;padding:clamp(44px,6vw,64px) 0}
+.numeros-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 22px}
+.num{padding-left:18px;border-left:1px solid rgba(184,150,62,.35)}
+.num-v{font-family:var(--font-head);font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1;color:var(--dourado);letter-spacing:-.02em}
+.num-v sup{font-size:.42em;vertical-align:super;margin-left:2px}
+.num-l{font-size:.78rem;line-height:1.45;color:rgba(245,245,240,.68);margin-top:10px;max-width:24ch}
+
+/* ============================================================
+   4 · DESTAQUES
+   ============================================================ */
+.destaques{padding:var(--sec-y) 0}
+.sec-head{margin-bottom:clamp(34px,4.5vw,54px);max-width:70ch}
+.sec-head h2{margin-bottom:14px;text-wrap:balance}
+
+.grid-imoveis{display:grid;gap:26px}
+
+.card{
+  background:#fff;border:1px solid var(--linha);border-radius:var(--r-md);
+  overflow:hidden;display:flex;flex-direction:column;position:relative;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--dourado-25)}
+
+/* SUBSTITUIR: foto real do imóvel — 800x600px (destaque principal: 1200x900px)
+   Trocar .card-media por: <img src="img/imovel-01.jpg" alt="..." loading="lazy"> */
+.card-media{
+  aspect-ratio:4/3;background:var(--bg-card);border-bottom:1px solid var(--dourado-25);
+  position:relative;display:grid;place-items:center;overflow:hidden;
+}
+.card-media::before{content:"";position:absolute;inset:12px;border:1px solid var(--dourado-25);border-radius:var(--r-sm)}
+.card-ph{
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--marinho-45);
+  text-align:center;padding:0 24px;line-height:1.9;
+}
+.card-ph b{display:block;font-family:var(--font-head);font-size:1.45rem;letter-spacing:.02em;color:var(--salvia);text-transform:none;font-weight:500;margin-bottom:6px}
+
+.tag{
+  position:absolute;top:14px;left:14px;z-index:2;background:var(--marinho);color:#F5F5F0;
+  font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 12px;border-radius:99px;
+}
+.tag.gold{background:var(--dourado);color:var(--marinho)}
+.tag.sage{background:var(--salvia)}
+
+.card-body{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card-local{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--salvia);font-weight:600}
+.card-title{font-family:var(--font-head);font-size:1.3rem;line-height:1.24}
+.card-quote{
+  font-family:var(--font-head);font-style:italic;font-size:1.05rem;line-height:1.45;
+  color:var(--salvia);border-left:2px solid var(--dourado);padding-left:14px;
+}
+.specs{display:flex;flex-wrap:wrap;gap:8px}
+.specs li{
+  list-style:none;font-size:.75rem;font-weight:500;color:var(--marinho-70);
+  background:var(--salvia-12);padding:6px 11px;border-radius:99px;white-space:nowrap;
+}
+.custos{
+  font-size:.74rem;color:var(--marinho-70);background:var(--bg);
+  border:1px dashed var(--linha);border-radius:var(--r-sm);padding:10px 12px;line-height:1.6;
+}
+.custos b{color:var(--marinho);font-weight:600}
+.card-desc{font-size:.92rem;color:var(--marinho-70)}
+.card-foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--linha);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.preco{font-family:var(--font-head);font-size:1.42rem;line-height:1}
+.preco small{display:block;font-family:var(--font-body);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--marinho-45);margin-bottom:6px;font-weight:600}
+.card-foot .btn{padding:12px 20px;font-size:.82rem}
+
+/* destaque principal */
+.card.featured .card-media{aspect-ratio:16/10}
+.card.featured .card-title{font-size:clamp(1.5rem,3vw,2.05rem)}
+.card.featured .preco{font-size:clamp(1.6rem,3vw,2.1rem)}
+.card.featured .card-body{padding:28px}
+
+.destaques-nota{margin-top:30px;font-size:.8rem;color:var(--marinho-45);display:flex;gap:10px;align-items:flex-start;line-height:1.6}
+.destaques-nota::before{content:"";width:18px;height:1px;background:var(--dourado);margin-top:11px;flex:none}
+
+/* ============================================================
+   5 · COMO FUNCIONA
+   ============================================================ */
+.como{background:var(--bg-card);padding:var(--sec-y) 0}
+.passos{display:grid;gap:20px;margin-top:clamp(30px,4vw,46px)}
+.passo{
+  background:var(--bg);border:1px solid var(--linha);border-radius:var(--r-md);
+  padding:30px 26px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.passo:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.passo-n{font-family:var(--font-head);font-size:3.6rem;line-height:.8;color:var(--dourado-25);position:absolute;top:16px;right:20px;pointer-events:none}
+.passo h3{font-size:1.18rem}
+.passo p{font-size:.92rem;color:var(--marinho-70)}
+
+.parceria{
+  margin-top:clamp(30px,4vw,46px);background:var(--marinho);color:#F5F5F0;
+  border-radius:var(--r-md);padding:clamp(26px,4vw,42px);display:grid;gap:22px;align-items:center;
+}
+.parceria p{color:rgba(245,245,240,.82);font-size:.97rem;max-width:62ch}
+.parceria strong{color:var(--dourado);font-weight:600}
+.parceria-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.parceria-tags span{font-size:.74rem;padding:6px 12px;border-radius:99px;border:1px solid rgba(245,245,240,.22);color:rgba(245,245,240,.75)}
+
+/* ============================================================
+   6 · DEPOIMENTOS
+   ============================================================ */
+.depo{padding:var(--sec-y) 0}
+.depo-grid{display:grid;gap:20px;margin-top:clamp(30px,4vw,46px)}
+.dcard{background:#fff;border:1px solid var(--linha);border-radius:var(--r-md);padding:30px 26px;display:flex;flex-direction:column;gap:18px}
+.dcard .aspas{font-family:var(--font-head);font-size:3rem;line-height:.6;color:var(--dourado-25);height:24px}
+.dcard p{font-size:.97rem;color:var(--marinho-70);flex:1}
+.dcard footer{display:flex;align-items:center;gap:12px;border-top:1px solid var(--linha);padding-top:16px}
+.dcard .av{
+  width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--marinho),var(--salvia));color:var(--dourado);
+  font-family:var(--font-head);font-size:.88rem;
+}
+.dcard .who b{display:block;font-size:.86rem;font-weight:600}
+.dcard .who span{font-size:.73rem;color:var(--marinho-45)}
+
+/* ============================================================
+   7 · SOBRE
+   ============================================================ */
+.sobre{background:var(--marinho);color:#F5F5F0;padding:var(--sec-y) 0;overflow:hidden}
+.sobre-grid{display:grid;gap:clamp(46px,5vw,64px);align-items:center}
+.sobre .eyebrow{color:rgba(245,245,240,.6)}
+.sobre h2{margin-bottom:20px}
+.sobre p{color:rgba(245,245,240,.82);margin-bottom:16px;font-size:1.02rem}
+.creci{
+  display:inline-flex;align-items:center;gap:10px;margin-top:12px;
+  border:1px solid var(--dourado-25);border-radius:var(--r-sm);padding:12px 18px;font-size:.82rem;letter-spacing:.06em;
+}
+.creci b{color:var(--dourado);font-weight:600;letter-spacing:.1em}
+.sobre-valores{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.sobre-valores span{font-size:.75rem;padding:8px 14px;border-radius:99px;border:1px solid rgba(245,245,240,.18);color:rgba(245,245,240,.72)}
+
+/* SUBSTITUIR: foto profissional do Antonio — 500x600px
+   Trocar .retrato por: <img src="img/antonio.jpg" alt="Antonio Júnior, corretor de imóveis em Atibaia/SP"> */
+.retrato-wrap{display:flex;justify-content:center;position:relative}
+.retrato{
+  width:min(320px,72vw);aspect-ratio:5/6;border-radius:999px;
+  background:linear-gradient(150deg,#1B1F2A 0%,#5C6E5A 100%);
+  border:1px solid var(--dourado-25);display:grid;place-items:center;position:relative;box-shadow:var(--shadow-lg);
+}
+.retrato::after{content:"";position:absolute;inset:14px;border:1px solid rgba(184,150,62,.22);border-radius:inherit}
+.retrato b{font-family:var(--font-head);font-size:clamp(3rem,8vw,4.4rem);color:var(--dourado);letter-spacing:.04em;line-height:1}
+.retrato i{
+  position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-style:normal;
+  font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;white-space:nowrap;
+  background:var(--dourado);color:var(--marinho);padding:6px 14px;border-radius:99px;
+}
+
+/* ============================================================
+   8 · CTA FINAL
+   ============================================================ */
+.cta{padding:var(--sec-y) 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 70% at 50% 0%, rgba(92,110,90,.16) 0%, transparent 70%)}
+.cta h2{margin-bottom:18px;text-wrap:balance;max-width:20ch;margin-inline:auto}
+.cta .lead{margin-inline:auto;margin-bottom:34px;text-align:center}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.cta-micro{margin-top:22px;font-size:.78rem;color:var(--marinho-45)}
+
+/* ============================================================
+   9 · FOOTER
+   ============================================================ */
+.footer{background:var(--marinho);color:rgba(245,245,240,.7);padding:clamp(46px,6vw,72px) 0 30px;font-size:.88rem}
+.footer-grid{display:grid;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(245,245,240,.12)}
+.footer h4{font-family:var(--font-head);font-size:1.06rem;color:#F5F5F0;font-weight:500;margin-bottom:14px}
+.footer a{transition:color .25s}
+.footer a:hover{color:var(--dourado)}
+.footer ul{list-style:none;display:grid;gap:9px}
+.footer .social{display:flex;gap:10px;margin-top:16px}
+.footer .social a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(245,245,240,.2);transition:border-color .25s,background .25s}
+.footer .social a:hover{border-color:var(--dourado);background:var(--dourado-10)}
+.footer-creci{display:inline-block;margin-top:14px;font-size:.75rem;letter-spacing:.1em;color:var(--dourado);border:1px solid var(--dourado-25);padding:8px 14px;border-radius:var(--r-sm)}
+.footer-bot{padding-top:24px;display:grid;gap:8px;font-size:.75rem;color:rgba(245,245,240,.45)}
+
+/* ============================================================
+   BOTÃO WHATSAPP FIXO
+   ============================================================ */
+.wa{
+  position:fixed;right:18px;bottom:18px;z-index:95;
+  display:inline-flex;align-items:center;gap:0;
+  background:var(--dourado);color:var(--marinho);border-radius:99px;padding:15px;
+  box-shadow:0 10px 30px rgba(27,31,42,.28);
+  transition:transform .35s var(--ease), box-shadow .3s var(--ease);
+}
+.wa:hover{box-shadow:0 16px 40px rgba(27,31,42,.36)}
+.wa span{display:none;font-size:.9rem;font-weight:600;white-space:nowrap}
+.wa::before{content:"";position:absolute;inset:0;border-radius:99px;background:var(--dourado);z-index:-1;animation:pulse 2.6s var(--ease) infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   BREAKPOINTS
+   ============================================================ */
+@media (min-width:600px){
+  .search{grid-template-columns:1fr 1fr auto;align-items:end}
+  .search .btn{width:auto;height:100%;padding-inline:26px}
+}
+@media (min-width:768px){
+  .grid-imoveis{grid-template-columns:repeat(2,1fr)}
+  .passos{grid-template-columns:repeat(3,1fr)}
+  .depo-grid{grid-template-columns:repeat(3,1fr)}
+  .numeros-grid{grid-template-columns:repeat(4,1fr)}
+  .footer-grid{grid-template-columns:1.5fr 1fr 1fr}
+  .parceria{grid-template-columns:1fr auto;gap:32px}
+  .nav .btn .txt-long{display:inline}
+  .nav .btn .txt-short{display:none}
+  /* DESKTOP: botão WhatsApp com rótulo */
+  .wa{right:26px;bottom:26px;padding:15px 22px;gap:10px}
+  .wa span{display:inline}
+  .wa:hover{transform:scale(1.05)}
+}
+@media (min-width:1024px){
+  .nav-links{display:flex}
+  .hero-scroll{display:flex}
+  .hero{align-items:center;padding-top:160px}
+  /* Grid de 6 colunas: destaque ocupa a linha inteira (mídia 1.4fr contra 1fr de texto),
+     depois 3 cards médios e 2 cards largos — sem linha órfã. */
+  .grid-imoveis{grid-template-columns:repeat(6,1fr)}
+  .card{grid-column:span 2}
+  .card:nth-last-child(-n+2):not(.featured){grid-column:span 3}
+  .card.featured{grid-column:span 6;flex-direction:row}
+  .card.featured .card-media{flex:1.4;aspect-ratio:auto;min-height:440px;border-bottom:0;border-right:1px solid var(--dourado-25)}
+  .card.featured .card-body{flex:1;justify-content:center;padding:44px}
+  .sobre-grid{grid-template-columns:1fr .78fr}
+  .search{grid-template-columns:1.2fr 1fr 1fr auto}
+}
+@media (min-width:1200px){ .grid-imoveis{gap:30px} }
+
+/* ============================================================
+   PREFERÊNCIAS DO USUÁRIO
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .wa::before{display:none}
+  .hero-scroll::after{animation:none}
+}
+@media (prefers-reduced-transparency:reduce){
+  .nav.scrolled{background:var(--bg);backdrop-filter:none}
+  .search{background:rgba(27,31,42,.75);backdrop-filter:none}
+  .brand-mark{background:var(--marinho)}
+}
+@media (prefers-contrast:more){
+  :root{--marinho-70:rgba(27,31,42,.92);--marinho-45:rgba(27,31,42,.78);--linha:rgba(27,31,42,.32);--dourado-25:rgba(184,150,62,.65)}
+  .hero-scrim{background:linear-gradient(to top,rgba(27,31,42,.96) 0%,rgba(27,31,42,.80) 60%,rgba(27,31,42,.64) 100%)}
+  .btn-ghost,.btn-ghost-light{border-width:2px}
+  .card{border-color:rgba(27,31,42,.4)}
+  .hero-sub,.sobre p,.parceria p,.num-l{color:#F5F5F0}
+}
+
+@media print{
+  .nav,.wa,.hero-scroll{display:none!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     1 · NAV
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#topo" class="brand" aria-label="Antonio Júnior Corretor — início">
+      <span class="brand-mark" aria-hidden="true">AJ</span>
+      <span class="brand-name">Antonio Júnior
+        <span class="brand-role">Corretor de Imóveis</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#destaques">Imóveis</a>
+      <a href="#como">Como funciona</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+
+    <a class="btn btn-gold"
+       href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20im%C3%B3vel"
+       target="_blank" rel="noopener">
+       <span class="txt-long">Falar com o Corretor</span><span class="txt-short">WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- ============================================================
+       2 · HERO
+       ============================================================ -->
+  <section class="hero">
+    <!-- SUBSTITUIR: foto aérea de drone de um imóvel — 1400x800px -->
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <div class="hero-inner">
+        <p class="eyebrow">Atibaia · Piracaia · Região</p>
+        <h1>O imóvel certo,<br>para a <em>família certa</em>.</h1>
+        <p class="hero-sub">
+          Casas de alto padrão, chácaras e propriedades exclusivas em Atibaia e região —
+          com acompanhamento direto do corretor, do primeiro contato à chave na mão.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-gold btn-lg"
+             href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20im%C3%B3vel"
+             target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.14c-.24.68-1.42 1.31-1.96 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.55-3.96-4.69-4.15-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.28.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.38-.06.6.46.24.55.79 1.9.86 2.04.07.14.12.3.02.49-.09.19-.14.3-.28.47-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.08.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+            Falar com Antonio no WhatsApp
+          </a>
+          <a class="btn btn-ghost-light btn-lg" href="#destaques">Ver imóveis disponíveis</a>
+        </div>
+
+        <!-- BARRA DE BUSCA — decorativa neste preview.
+             SUBSTITUIR: no site final, remover os atributos disabled/aria-disabled
+             e conectar os campos ao filtro real do catálogo de imóveis. -->
+        <form class="search" aria-label="Busca de imóveis (demonstrativa neste preview)" onsubmit="return false">
+          <span class="search-note">Busca ativa no site final</span>
+
+          <div class="search-field">
+            <label for="f-cidade">Cidade</label>
+            <select id="f-cidade" disabled aria-disabled="true">
+              <option>Atibaia / SP</option>
+              <option>Piracaia / SP</option>
+              <option>Bragança Paulista / SP</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="f-tipo">Tipo de imóvel</label>
+            <select id="f-tipo" disabled aria-disabled="true">
+              <option>Casa em condomínio</option>
+              <option>Chácara</option>
+              <option>Casa de campo</option>
+              <option>Terreno</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="f-faixa">Faixa de valor</label>
+            <select id="f-faixa" disabled aria-disabled="true">
+              <option>Até R$ 2.500.000</option>
+              <option>R$ 2.500.000 a R$ 4.000.000</option>
+              <option>Acima de R$ 4.000.000</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-gold" disabled aria-disabled="true">Buscar</button>
+        </form>
+      </div>
+    </div>
+
+    <span class="hero-scroll" aria-hidden="true">Role</span>
+  </section>
+
+  <!-- ============================================================
+       3 · NÚMEROS
+       ============================================================ -->
+  <section class="numeros" aria-label="Números e atuação">
+    <div class="wrap">
+      <div class="numeros-grid">
+
+        <div class="num reveal">
+          <!-- Base real: 2 imóveis marcados "VENDIDO" em poucas semanas na amostra de posts -->
+          <p class="num-v">2</p>
+          <p class="num-l">imóveis vendidos nas últimas semanas <!-- SUBSTITUIR: atualizar número e período exatos --></p>
+        </div>
+
+        <div class="num reveal">
+          <p class="num-v">R$ 22<sup>Mi</sup></p>
+          <p class="num-l">em imóveis no portfólio atual de divulgação</p>
+        </div>
+
+        <div class="num reveal">
+          <p class="num-v">[XX]<sup>+</sup></p>
+          <p class="num-l">anos atuando no mercado de Atibaia e região <!-- SUBSTITUIR: anos de atuação --></p>
+        </div>
+
+        <div class="num reveal">
+          <p class="num-v">[XX]<sup>+</sup></p>
+          <p class="num-l">corretores parceiros na rede de negociação <!-- SUBSTITUIR: nº real de parceiros --></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4 · DESTAQUES — imóveis reais, do maior ao menor valor
+       ============================================================ -->
+  <section class="destaques" id="destaques">
+    <div class="wrap">
+
+      <header class="sec-head reveal">
+        <p class="eyebrow">Portfólio</p>
+        <h2>Alguns dos imóveis que já ajudei a encontrar o dono certo.</h2>
+        <p class="lead">Metragem, estrutura e valor abertos em cada propriedade. Sem "consulte-nos" —
+          você chega na conversa já sabendo do que estamos falando.</p>
+      </header>
+
+      <div class="grid-imoveis">
+
+        <!-- ---------- 01 · DESTAQUE PRINCIPAL — R$ 8.490.000 ---------- -->
+        <article class="card featured reveal">
+          <!-- SUBSTITUIR: foto real do imóvel — 1200x900px -->
+          <div class="card-media">
+            <span class="tag gold">Destaque</span>
+            <span class="card-ph"><b>Estância Parque Atibaia</b>Substituir por foto do imóvel</span>
+          </div>
+          <div class="card-body">
+            <p class="card-local">Estância Parque Atibaia · Atibaia/SP</p>
+            <h3 class="card-title">Residência de alto padrão em condomínio fechado</h3>
+            <ul class="specs">
+              <li>3.500 m² de terreno</li>
+              <li>800 m² construídos</li>
+              <li>5 suítes</li>
+              <li>Piscina aquecida</li>
+              <li>Spa</li>
+            </ul>
+            <p class="card-desc">A maior propriedade do portfólio atual: estrutura completa de lazer,
+              área construída generosa e a privacidade de um dos condomínios mais consolidados de Atibaia.</p>
+            <div class="card-foot">
+              <p class="preco"><small>Valor</small>R$ 8.490.000</p>
+              <a class="btn btn-gold"
+                 href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%3A%20Est%C3%A2ncia%20Parque%20Atibaia%20-%20R%24%208.490.000"
+                 target="_blank" rel="noopener">Consultar valor</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- 02 · R$ 3.199.000 ---------- -->
+        <article class="card reveal">
+          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+          <div class="card-media">
+            <span class="tag sage">Casa de campo</span>
+            <span class="card-ph"><b>Casa de campo</b>Substituir por foto do imóvel</span>
+          </div>
+          <div class="card-body">
+            <p class="card-local">Condomínio a 10 min do centro · Atibaia/SP</p>
+            <h3 class="card-title">Casa de campo com campo de futebol</h3>
+            <ul class="specs">
+              <li>1.800 m² de terreno</li>
+              <li>300 m² construídos</li>
+              <li>5 suítes</li>
+              <li>Campo de futebol</li>
+            </ul>
+            <!-- Transparência de custos: diferencial real que ele já pratica nos posts -->
+            <p class="custos">Custos abertos: <b>Condomínio R$ 850/mês</b> · <b>IPTU R$ 4.498/ano</b>.</p>
+            <div class="card-foot">
+              <p class="preco"><small>Valor</small>R$ 3.199.000</p>
+              <a class="btn btn-gold"
+                 href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%3A%20Casa%20de%20campo%20a%2010%20min%20do%20centro%20de%20Atibaia%20-%20R%24%203.199.000"
+                 target="_blank" rel="noopener">Consultar valor</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- 03 · R$ 2.950.000 ---------- -->
+        <article class="card reveal">
+          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+          <div class="card-media">
+            <span class="tag">Exclusivo · 11 residências</span>
+            <span class="card-ph"><b>Lucas N. Garcez</b>Substituir por foto do imóvel</span>
+          </div>
+          <div class="card-body">
+            <p class="card-local">Av. Lucas Nogueira Garcez · Atibaia/SP</p>
+            <h3 class="card-title">Casa em condomínio exclusivo de 11 residências</h3>
+            <ul class="specs">
+              <li>690,79 m² de terreno</li>
+              <li>450 m² construídos</li>
+              <li>4 suítes</li>
+              <li>Piscina estilo resort</li>
+            </ul>
+            <div class="card-foot">
+              <p class="preco"><small>Valor</small>R$ 2.950.000</p>
+              <a class="btn btn-gold"
+                 href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%3A%20Av.%20Lucas%20Nogueira%20Garcez%20-%20R%24%202.950.000"
+                 target="_blank" rel="noopener">Consultar valor</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- 04 · R$ 2.799.000 ---------- -->
+        <article class="card reveal">
+          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+          <div class="card-media">
+            <span class="tag gold">Proprietário estuda proposta</span>
+            <span class="card-ph"><b>Pé na Água</b>Substituir por foto do imóvel</span>
+          </div>
+          <div class="card-body">
+            <p class="card-local">Represa da usina · Atibaia/SP</p>
+            <h3 class="card-title">Chácara pé na água com pier privativo</h3>
+            <ul class="specs">
+              <li>6.000 m² de terreno</li>
+              <li>Zoneamento comercial</li>
+              <li>Pier privativo</li>
+              <li>Piscina aquecida</li>
+            </ul>
+            <p class="custos">Zoneamento comercial: aceita uso residencial <b>ou</b> exploração comercial no mesmo terreno.</p>
+            <div class="card-foot">
+              <p class="preco"><small>Valor</small>R$ 2.799.000</p>
+              <a class="btn btn-gold"
+                 href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%3A%20Ch%C3%A1cara%20P%C3%A9%20na%20%C3%81gua%20(represa%20da%20usina)%20-%20R%24%202.799.000"
+                 target="_blank" rel="noopener">Consultar valor</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- 05 · R$ 2.290.000 — usa a copy orgânica de maior engajamento ---------- -->
+        <article class="card reveal">
+          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+          <div class="card-media">
+            <span class="tag sage">Refúgio da Família</span>
+            <span class="card-ph"><b>Refúgio da Família</b>Substituir por foto do imóvel</span>
+          </div>
+          <div class="card-body">
+            <p class="card-local">Chácara · Atibaia/SP</p>
+            <!-- Headline real do post de maior engajamento orgânico (1,6K likes / 31 comentários) -->
+            <p class="card-quote">"O melhor investimento é aquele que aproxima a família."</p>
+            <h3 class="card-title">Chácara Refúgio da Família</h3>
+            <ul class="specs">
+              <li>4.600 m² de terreno</li>
+              <li>350 m² construídos</li>
+              <li>5 dormitórios (4 suítes)</li>
+              <li>Campo de futebol</li>
+            </ul>
+            <div class="card-foot">
+              <p class="preco"><small>Valor</small>R$ 2.290.000</p>
+              <a class="btn btn-gold"
+                 href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%3A%20Ch%C3%A1cara%20Ref%C3%BAgio%20da%20Fam%C3%ADlia%20-%20R%24%202.290.000"
+                 target="_blank" rel="noopener">Consultar valor</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- 06 · R$ 2.299.000 ---------- -->
+        <article class="card reveal">
+          <!-- SUBSTITUIR: foto real do imóvel — 800x600px -->
+          <div class="card-media">
+            <span class="tag">A 1h30 da capital</span>
+            <span class="card-ph"><b>Represa · Piracaia</b>Substituir por foto do imóvel</span>
+          </div>
+          <div class="card-body">
+            <p class="card-local">Represa · Piracaia/SP</p>
+            <h3 class="card-title">Casa com acesso exclusivo à represa</h3>
+            <ul class="specs">
+              <li>1.360 m² de terreno</li>
+              <li>350 m² construídos</li>
+              <li>4 dormitórios (2 suítes)</li>
+              <li>Acesso exclusivo à represa</li>
+            </ul>
+            <div class="card-foot">
+              <p class="preco"><small>Valor</small>R$ 2.299.000</p>
+              <a class="btn btn-gold"
+                 href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%3A%20Casa%20na%20represa%20em%20Piracaia%2FSP%20-%20R%24%202.299.000"
+                 target="_blank" rel="noopener">Consultar valor</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="destaques-nota reveal">
+        Valores, metragens e disponibilidade sujeitos a alteração sem aviso prévio.
+        <!-- SUBSTITUIR: atualizar a carteira a cada venda — manter o card com selo "VENDIDO"
+             por algumas semanas gera prova social real -->
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5 · COMO FUNCIONA
+       ============================================================ -->
+  <section class="como" id="como">
+    <div class="wrap">
+
+      <header class="sec-head reveal">
+        <p class="eyebrow">Como funciona</p>
+        <h2>Três passos, um corretor do começo ao fim.</h2>
+        <p class="lead">Você não é repassado de atendente em atendente. Quem responde a primeira
+          mensagem é quem entrega a chave.</p>
+      </header>
+
+      <div class="passos">
+        <article class="passo reveal">
+          <span class="passo-n" aria-hidden="true">01</span>
+          <h3>Veja o imóvel</h3>
+          <p>Metragem, estrutura, condomínio e IPTU abertos desde o primeiro contato.
+             Você avalia com informação completa antes de sair de casa.</p>
+        </article>
+        <article class="passo reveal">
+          <span class="passo-n" aria-hidden="true">02</span>
+          <h3>Agende a visita</h3>
+          <p>Visita marcada no seu horário, comigo presente. Se o imóvel não for o certo,
+             já chego com outras opções da região que fazem sentido para o seu perfil.</p>
+        </article>
+        <article class="passo reveal">
+          <span class="passo-n" aria-hidden="true">03</span>
+          <h3>Feche com segurança</h3>
+          <p>Documentação conferida, negociação conduzida e cada etapa explicada.
+             Nada avança sem que você entenda exatamente o que está assinando.</p>
+        </article>
+      </div>
+
+      <div class="parceria reveal">
+        <div>
+          <p>Trabalho com uma <strong>rede de corretores parceiros</strong> em Atibaia e região —
+             isso significa mais opções para você e mais segurança em cada etapa da negociação.
+             Boa parte das vendas recentes foi fechada em parceria.</p>
+          <div class="parceria-tags">
+            <span>@giancarlopieve</span>
+            <span>@davidalmeidadvd</span>
+            <!-- SUBSTITUIR: incluir os demais parceiros recorrentes, se houver -->
+          </div>
+        </div>
+        <a class="btn btn-gold"
+           href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20im%C3%B3vel"
+           target="_blank" rel="noopener">Começar pelo WhatsApp</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6 · DEPOIMENTOS
+       SUBSTITUIR: os três textos abaixo são modelos escritos a partir do padrão real
+       dos comentários do Instagram ("parabéns pela negociação", "confiança").
+       Trocar por depoimentos autorizados de clientes reais — nome, cidade e, se possível,
+       o imóvel negociado. Não publicar como real enquanto não houver autorização.
+       ============================================================ -->
+  <section class="depo" aria-label="Depoimentos">
+    <div class="wrap">
+
+      <header class="sec-head reveal">
+        <p class="eyebrow">Quem já negociou</p>
+        <h2>A confiança vem antes da chave.</h2>
+      </header>
+
+      <div class="depo-grid">
+
+        <article class="dcard reveal">
+          <span class="aspas" aria-hidden="true">&ldquo;</span>
+          <p>Procurávamos uma chácara há mais de um ano. O Antonio entendeu na primeira conversa
+             o que a gente queria de verdade e não perdeu nosso tempo com imóvel fora do perfil.</p>
+          <footer>
+            <span class="av" aria-hidden="true">RS</span>
+            <span class="who"><b>[SUBSTITUIR: nome do cliente]</b><span>Comprador · Atibaia/SP</span></span>
+          </footer>
+        </article>
+
+        <article class="dcard reveal">
+          <span class="aspas" aria-hidden="true">&ldquo;</span>
+          <p>Negociação conduzida com respeito dos dois lados. Todo documento explicado,
+             nenhuma pressa artificial. Parabéns pela negociação, Antonio.</p>
+          <footer>
+            <span class="av" aria-hidden="true">MF</span>
+            <span class="who"><b>[SUBSTITUIR: nome do cliente]</b><span>Vendedor · Piracaia/SP</span></span>
+          </footer>
+        </article>
+
+        <article class="dcard reveal">
+          <span class="aspas" aria-hidden="true">&ldquo;</span>
+          <p>Moramos em São Paulo e fizemos quase tudo à distância. A confiança foi o que mais
+             pesou — ele mandava vídeo, tirava dúvida no mesmo dia e nunca sumiu.</p>
+          <footer>
+            <span class="av" aria-hidden="true">CA</span>
+            <span class="who"><b>[SUBSTITUIR: nome do cliente]</b><span>Compradora · Condomínio em Atibaia/SP</span></span>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7 · SOBRE
+       ============================================================ -->
+  <section class="sobre" id="sobre">
+    <div class="wrap">
+      <div class="sobre-grid">
+
+        <div class="reveal">
+          <p class="eyebrow">Sobre</p>
+          <h2>Antonio Júnior</h2>
+          <p>Sou Antonio Júnior, corretor de imóveis em Atibaia/SP. Conectar famílias ao imóvel ideal
+             é o que me move — cada venda fechada é resultado de trabalho, parceria e gratidão pela
+             confiança de quem escolhe negociar comigo.</p>
+          <p>Atendo pessoalmente cada cliente, de casas em condomínio fechado a chácaras à beira da
+             represa, em Atibaia, Piracaia e região. O nome que aparece no anúncio é o mesmo que
+             responde no WhatsApp, abre o portão na visita e conduz a negociação até o fim.</p>
+
+          <!-- SUBSTITUIR: número do CRECI — obrigatório em site de corretor (Lei 6.530/78).
+               O site NÃO deve ir ao ar sem este dado preenchido. -->
+          <p class="creci">CRECI <b>[SUBSTITUIR: nº 000000-F / SP]</b></p>
+
+          <div class="sobre-valores">
+            <span>Atendimento direto</span>
+            <span>Rede de parceiros</span>
+            <span>Transparência de custos</span>
+            <span>Atibaia · Piracaia · Região</span>
+          </div>
+        </div>
+
+        <!-- SUBSTITUIR: foto profissional do Antonio — 500x600px -->
+        <div class="retrato-wrap reveal">
+          <div class="retrato" role="img" aria-label="Espaço reservado para a foto de Antonio Júnior">
+            <b aria-hidden="true">AJ</b>
+            <i aria-hidden="true">Substituir por foto real</i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8 · CTA FINAL
+       ============================================================ -->
+  <section class="cta">
+    <div class="wrap">
+      <p class="eyebrow center reveal">Próximo passo</p>
+      <h2 class="reveal">Encontrou um imóvel que combina com você?</h2>
+      <p class="lead reveal">Fale comigo agora e agende sua visita. Respondo pessoalmente —
+         sem robô, sem central de atendimento.</p>
+
+      <div class="cta-actions reveal">
+        <a class="btn btn-gold btn-lg"
+           href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20agendar%20uma%20visita"
+           target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.14c-.24.68-1.42 1.31-1.96 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.55-3.96-4.69-4.15-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.28.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.38-.06.6.46.24.55.79 1.9.86 2.04.07.14.12.3.02.49-.09.19-.14.3-.28.47-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.08.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+          Agendar visita pelo WhatsApp
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#destaques">Rever os imóveis</a>
+      </div>
+
+      <p class="cta-micro reveal">Atendimento em Atibaia, Piracaia e região · Segunda a sábado</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     9 · FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div>
+        <h4>Antonio Júnior Corretor</h4>
+        <p>Imóveis de alto padrão, chácaras e propriedades exclusivas em Atibaia/SP e região.</p>
+        <!-- SUBSTITUIR: número do CRECI -->
+        <span class="footer-creci">CRECI [SUBSTITUIR: nº 000000-F / SP]</span>
+        <div class="social">
+          <a href="https://instagram.com/ajrcorretor" target="_blank" rel="noopener" aria-label="Instagram @ajrcorretor">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20im%C3%B3vel" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.14c-.24.68-1.42 1.31-1.96 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.55-3.96-4.69-4.15-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.28.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.38-.06.6.46.24.55.79 1.9.86 2.04.07.14.12.3.02.49-.09.19-.14.3-.28.47-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.08.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="#destaques">Imóveis em destaque</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#sobre">Sobre Antonio</a></li>
+          <li><a href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20im%C3%B3vel" target="_blank" rel="noopener">Falar no WhatsApp</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <!-- ATENÇÃO: confirmar o número oficial antes de publicar.
+               Nos posts aparecem (11) 92009-0665 (bio, majoritário) e (11) 96285-4864 (2 posts). -->
+          <li><a href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20im%C3%B3vel" target="_blank" rel="noopener">(11) 92009-0665</a></li>
+          <li><a href="https://instagram.com/ajrcorretor" target="_blank" rel="noopener">@ajrcorretor</a></li>
+          <li>Atibaia/SP e região</li>
+          <li>Piracaia · Bragança Paulista</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bot">
+      <p>&copy; <span id="ano">2026</span> Antonio Júnior Corretor de Imóveis · Todos os direitos reservados.</p>
+      <p>Valores, metragens e disponibilidade sujeitos a alteração sem aviso prévio. Imagens meramente ilustrativas.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÃO WHATSAPP FIXO -->
+<a class="wa"
+   href="https://wa.me/5511920090665?text=Ol%C3%A1%2C%20Ant%C3%B4nio!%20Vi%20o%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20im%C3%B3vel"
+   target="_blank" rel="noopener" aria-label="Falar com Antonio no WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.14c-.24.68-1.42 1.31-1.96 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.55-3.96-4.69-4.15-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.28.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.38-.06.6.46.24.55.79 1.9.86 2.04.07.14.12.3.02.49-.09.19-.14.3-.28.47-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.08.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+  <span>Falar com Antonio</span>
+</a>
+
+<script>
+(function(){
+  'use strict';
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* mq vivo: comportamento desktop/mobile reavaliado a cada scroll, não só no load */
+  var mqDesktop = window.matchMedia('(min-width: 1024px)');
+
+  /* --- ano do rodapé --- */
+  var ano = document.getElementById('ano');
+  if (ano) ano.textContent = new Date().getFullYear();
+
+  /* --- NAV: estado "scrolled" (fundo off-white ao sair do hero) --- */
+  var nav = document.getElementById('nav'), tickNav = false;
+  function onScroll(){
+    if (tickNav) return;
+    tickNav = true;
+    window.requestAnimationFrame(function(){
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+      tickNav = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  /* --- SCROLL REVEAL: opacity 0→1 + translateY 26px→0 --- */
+  var alvos = document.querySelectorAll('.reveal');
+  if (reduz || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(alvos, function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = Array.prototype.indexOf.call(e.target.parentNode.children, e.target);
+        e.target.style.transitionDelay = Math.min(i, 5) * 70 + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+    Array.prototype.forEach.call(alvos, function(el){ io.observe(el); });
+  }
+
+  /* --- Comportamentos distintos por dispositivo ---
+     DESKTOP: parallax leve no hero.
+     MOBILE:  hero estático (performance) e botão WhatsApp que recolhe ao descer
+              e volta ao subir, liberando a tela em telas pequenas. --- */
+  var media = document.querySelector('.hero-media');
+  var wa    = document.querySelector('.wa');
+  var ultimo = 0, tickD = false;
+
+  if (!reduz) {
+    window.addEventListener('scroll', function(){
+      if (tickD) return;
+      tickD = true;
+      window.requestAnimationFrame(function(){
+        var atual = window.scrollY;
+
+        if (mqDesktop.matches) {
+          if (media) {
+            var y = Math.min(atual, window.innerHeight);
+            media.style.transform = 'translate3d(0,' + (y * 0.14) + 'px,0) scale(1.08)';
+          }
+          if (wa) wa.style.transform = 'translateY(0)';
+        } else {
+          if (media) media.style.transform = '';
+          if (wa) wa.style.transform = (atual > ultimo && atual > 320) ? 'translateY(140%)' : 'translateY(0)';
+        }
+
+        ultimo = atual;
+        tickD = false;
+      });
+    }, { passive:true });
+  }
+})();
+</script>
+
+</body>
+</html>
